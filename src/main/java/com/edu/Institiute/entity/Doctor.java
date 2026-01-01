@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+
 
 @Entity
 @Getter
@@ -20,36 +18,36 @@ import java.util.Date;
 public class Doctor {
 
     @Id
-    @Column(name="doctorID")
-    private String doctorID;
+    @Column(name="id")
+    private String doctorId;
 
-    @Column(name = "UserId")
-    private String UserId;
+    @Column(name = "userId")
+    private String userId;
 
-    @Column(name = "Specializations")
-    private String Specializations;
+    @Column(name = "specializations")
+    private String specializations;
 
-    @Column(name="Qualifications")
-    private String Qualifications;
+    @Column(name="qualifications")
+    private String qualifications;
 
-    @Column(name = "LicenceNumber")
-    private String LicenceNumber;
+    @Column(name = "licenceNumber")
+    private String licenceNumber;
 
-    @Column(name = "YearsOfExperience")
-    private Integer YearsOfExperience;
+    @Column(name = "yearsOfExperience")
+    private Integer yearsOfExperience;
 
-    @Column(name = "IsActive")
-    private Boolean IsActive;
+    @Column(name = "isActive")
+    private Boolean isActive;
 
-    @Column(name = "CreatedBy")
-    private String CreatedBy;
+    @Column(name = "createdBy")
+    private String createdBy;
 
-    @Column(name = "CreatedDate")
-    private Date CreatedDate;
+    @Column(name = "createdDate")
+    private Date createdDate;
 
-    @Column(name = "ModifiedBy")
-    private String ModifiedBy;
+    @Column(name = "modifiedBy")
+    private String modifiedBy;
 
-    @Column(name = "ModifiedDate")
-    private Date ModifiedDate;
+    @Column(name = "modifiedDate")
+    private Date modifiedDate;
 }
