@@ -14,7 +14,6 @@ import java.sql.SQLException;
 @RestController
 @RequestMapping("/api/v1/student")
 public class StudentController {
-
     @Autowired
     private StudentService studentService;
 

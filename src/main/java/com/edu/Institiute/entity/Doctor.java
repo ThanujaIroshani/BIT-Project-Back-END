@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,40 +13,44 @@ import java.util.Date;
 @Setter
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Table (name = "doctor")
+@Table(name = "doctor")
 public class Doctor {
 
     @Id
-    @Column(name="doctorID")
-    private String doctorID;
+    @Column(name = "doctorId")
+    private String doctorId;
 
-    @Column(name = "UserId")
-    private String UserId;
+    @Column(name = "userId")
+    private int userId;
 
-    @Column(name = "Specializations")
-    private String Specializations;
+    @Column(name = "specialization")
+    private String specialization;
 
-    @Column(name="Qualifications")
-    private String Qualifications;
+    @Column(name = "qualifications")
+    private String qualifications;
 
-    @Column(name = "LicenceNumber")
-    private String LicenceNumber;
+    @Column (name = "licenseNumber")
+    private String licenseNumber;
 
-    @Column(name = "YearsOfExperience")
-    private Integer YearsOfExperience;
+    @Column (name = "yearsOfExperience")
+    private int yearsOfExperience;
 
-    @Column(name = "IsActive")
-    private Boolean IsActive;
+    @Column (name = "isActive")
+    private boolean isActive;
 
-    @Column(name = "CreatedBy")
-    private String CreatedBy;
+    @Column(name = "createdBy")
+    private String createdBy;
 
-    @Column(name = "CreatedDate")
-    private Date CreatedDate;
+    @Column(name = "createdDate")
+    private Date createdDate;
 
-    @Column(name = "ModifiedBy")
-    private String ModifiedBy;
+    @Column(name = "modifyBy")
+    private String modifyBy;
 
-    @Column(name = "ModifiedDate")
-    private Date ModifiedDate;
+    @Column(name = "modifyDate")
+    private String modifyDate;
+
+    @ManyToOne
+    @JoinColumn(name="status_id", referencedColumnName = "id")
+    private Status status;
 }

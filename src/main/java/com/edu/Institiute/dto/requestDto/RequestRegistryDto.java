@@ -1,5 +1,6 @@
 package com.edu.Institiute.dto.requestDto;
 
+import com.edu.Institiute.dto.StatusDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -22,16 +23,14 @@ public class RequestRegistryDto {
     private String courseName;
 
     //doctor
-
-    private String DoctorId;
-    private String UserId;
-    private String Specification;
-    private String Qualifications;
-    private String LicenceNumber;
-    private Integer YearsOfExperience;
-    private Boolean IsActive;
-    private String CreatedBy;
-    private Date CreatedDate;
-    private String ModifyBy;
-    private Date ModifyDate;
+    private Integer userId;
+    private String specializations;
+    private String qualifications;
+    private String licenceNumber;
+    private Integer yearsOfExperience;
+    private Boolean isActive;
+    private String createdBy;
+    private Date createdDate;
+    private String modifiedBy;
+    private Date modifiedDate;
 }

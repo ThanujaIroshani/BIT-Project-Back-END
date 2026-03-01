@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Table(name = "student")
-public class Student {
+public class  Student {
 
     @Id
     @Column(name="id")
