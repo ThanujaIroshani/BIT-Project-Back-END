@@ -1,5 +1,6 @@
 package com.edu.Institiute.dto;
 
+import com.edu.Institiute.entity.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,15 +13,15 @@ import java.util.Date;
 public class DoctorDto {
 
     private String doctorId;
-    private String userId;
+    private int userId;
     private String specializations;
     private String qualifications;
-    private String licenceNumber;
-    private Integer yearsOfExperience;
+    private String licenseNumber;
+    private int yearsOfExperience;
     private Boolean isActive;
     private String createdBy;
     private Date createdDate;
     private String modifiedBy;
     private Date modifiedDate;
-
+    private StatusDto status;
 }

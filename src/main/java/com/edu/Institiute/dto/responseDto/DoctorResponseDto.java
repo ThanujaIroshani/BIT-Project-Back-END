@@ -13,15 +13,15 @@ import java.util.Date;
 public class DoctorResponseDto {
 
     private String doctorId;
-    private String userId;
+    private int userId;
     private String specializations;
     private String qualifications;
-    private String licenceNumber;
-    private Integer yearsOfExperience;
+    private String licenseNumber;
+    private int yearsOfExperience;
     private Boolean isActive;
     private String createdBy;
     private Date createdDate;
-    private String modifiedBy;
-    private Date modifiedDate;
-
+    private String modifyBy;
+    private Date modifyDate;
+    private StatusDto status;
 }

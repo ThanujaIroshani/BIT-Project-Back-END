@@ -23,8 +23,7 @@ public class RequestRegistryDto {
     private String courseName;
 
     //doctor
-    private String doctorId;
-    private String userId;
+    private Integer userId;
     private String specializations;
     private String qualifications;
     private String licenceNumber;
