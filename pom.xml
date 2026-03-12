@@ -127,6 +127,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Testing -->
@@ -141,6 +142,10 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+<<<<<<<<< Temporary merge branch 1
+    </dependencies>
+
+=========
 
         <!-- Add this right after spring-boot-starter-web -->
         <dependency>
@@ -151,6 +156,7 @@
         </dependency>
     </dependencies>
 
+>>>>>>>>> Temporary merge branch 2
     <build>
         <plugins>
             <!-- Spring Boot Plugin -->
