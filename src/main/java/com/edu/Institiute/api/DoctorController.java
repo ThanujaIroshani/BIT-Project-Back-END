@@ -15,7 +15,7 @@ import java.sql.SQLException;
 
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
-@RequestMapping("/api/vi/doctor")
+@RequestMapping("/api/v1/doctor")
 public class DoctorController {
 
     @Autowired
@@ -33,4 +33,18 @@ public class DoctorController {
                 HttpStatus.CREATED
         );
     }
+    @CrossOrigin(origins = "http:localhost:4200//")
+    @PutMapping("{doctorId")
+    public ResponseEntity<StandardResponse> updateDoctor(@RequestBody RequestRegistryDto data,@PathVariable String doctorId){
+        CommonResponseDto responseData = doctorService.updateDoctor(data,doctorId);
+        return new ResponseEntity<>(
+                new StandardResponse(
+                        responseData.getCode(),
+                        responseData.getMessage(),
+                        responseData.getData()
+                ),
+                HttpStatus.CREATED
+        );
+    }
+
 }

@@ -23,8 +23,8 @@ public class Doctor {
     @Column(name = "userId")
     private int userId;
 
-    @Column(name = "specialization")
-    private String specialization;
+    @Column(name = "specializations")
+    private String specializations;
 
     @Column(name = "qualifications")
     private String qualifications;
@@ -44,11 +44,11 @@ public class Doctor {
     @Column(name = "createdDate")
     private Date createdDate;
 
-    @Column(name = "modifyBy")
-    private String modifyBy;
+    @Column(name = "modifiedBy")
+    private String modifiedBy;
 
-    @Column(name = "modifyDate")
-    private String modifyDate;
+    @Column(name = "modifiedDate")
+    private Date modifiedDate;
 
     @ManyToOne
     @JoinColumn(name="status_id", referencedColumnName = "id")

@@ -1,9 +1,10 @@
 package com.edu.Institiute.service.impl;
 
-
 import com.edu.Institiute.dto.DoctorDto;
+import com.edu.Institiute.dto.StatusDto;
 import com.edu.Institiute.dto.requestDto.RequestRegistryDto;
 import com.edu.Institiute.dto.responseDto.CommonResponseDto;
+import com.edu.Institiute.entity.Doctor;
 import com.edu.Institiute.entity.Status;
 import com.edu.Institiute.exception.EntryNotFoundException;
 import com.edu.Institiute.repo.DoctorRepo;
@@ -17,7 +18,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -39,7 +39,7 @@ public class DoctorRegistryImpl implements DoctorService {
     @Autowired
     private DoctorMapper doctorMapper;
 
-    public DoctorRegistryImpl(Generator generator) {this.generator = generator;}
+    public DoctorRegistryImpl(Generator generator) { this.generator = generator;}
 
     @Override
     public CommonResponseDto saveDoctor(RequestRegistryDto dto){
@@ -47,7 +47,7 @@ public class DoctorRegistryImpl implements DoctorService {
             String doctorRegistryCode = "IBM-S" + "-" + generator.generateFourNumbers();
             String doctorId = generator.generateFourNumbers();
             Optional<Status> status = statusRepo.findStatusById(dto.getStatus());
-
+            System.out.println("data "+dto);
 
             DoctorDto doctorDto = new DoctorDto(
                     doctorRegistryCode,
@@ -70,5 +70,33 @@ public class DoctorRegistryImpl implements DoctorService {
             throw new EntryNotFoundException("Can't save because of this Error -->" +e);
 }
 }
+
+    @Override
+    public CommonResponseDto updateDoctor(RequestRegistryDto dto, String doctorId){
+        try {
+
+            Doctor allDoctorForProvidedId = doctorRepo.findByDocId(doctorId);
+            Optional<Status> status = statusRepo.findStatusById(dto.getStatus());
+
+            allDoctorForProvidedId.setDoctorId(dto.getDoctorId());
+            allDoctorForProvidedId.setUserId(dto.getUserId());
+            allDoctorForProvidedId.setSpecializations(dto.getSpecializations());
+            allDoctorForProvidedId.setQualifications(dto.getQualifications());
+            allDoctorForProvidedId.setLicenseNumber(dto.getLicenceNumber());
+            allDoctorForProvidedId.setYearsOfExperience(dto.getYearsOfExperience());
+            allDoctorForProvidedId.setActive(dto.getIsActive());
+            allDoctorForProvidedId.setCreatedBy(dto.getCreatedBy());
+            allDoctorForProvidedId.setCreatedDate(dto.getCreatedDate());
+            allDoctorForProvidedId.setModifiedBy(dto.getModifiedBy());
+            allDoctorForProvidedId.setModifiedDate(dto.getModifiedDate());
+            allDoctorForProvidedId.setStatus(status.get());
+
+            doctorRepo.save(allDoctorForProvidedId);
+
+            return new CommonResponseDto(201,"Doctor Updated",allDoctorForProvidedId.getDoctorId(),new ArrayList<>());
+        }catch (Exception e){
+            throw new EntryNotFoundException("Can't Save because of this Error-->"+e);
+        }
+    }
 
 }
