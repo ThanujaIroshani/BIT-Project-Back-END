@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 @Mapper(componentModel = "Spring")
 public interface DoctorMapper {
     Doctor dtoToDoctorEntity(DoctorDto doctorDto);
+
     DoctorDto toDoctorDto(Doctor doctor);
 }

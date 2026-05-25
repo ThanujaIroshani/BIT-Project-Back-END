@@ -13,11 +13,11 @@ import java.util.Date;
 public class DoctorDto {
 
     private String doctorId;
-    private int userId;
+    private Integer userId;
     private String specializations;
     private String qualifications;
     private String licenseNumber;
-    private int yearsOfExperience;
+    private Integer yearsOfExperience;
     private Boolean isActive;
     private String createdBy;
     private Date createdDate;

@@ -142,8 +142,21 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+<<<<<<<<< Temporary merge branch 1
     </dependencies>
 
+=========
+
+        <!-- Add this right after spring-boot-starter-web -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+>>>>>>>>> Temporary merge branch 2
     <build>
         <plugins>
             <!-- Spring Boot Plugin -->
